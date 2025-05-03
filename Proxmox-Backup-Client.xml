@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Proxmox-Backup-Client</Name>
+  <Repository>aterfax/pbs-client</Repository>
+  <Registry>https://hub.docker.com/r/aterfax/pbs-client</Registry>
+  <Network>host</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>TBD</Support>
+  <Project>https://github.com/Aterfax/pbs-client-docker</Project>
+  <Overview>A Docker image to run the Proxmox Backup Server client and backup things from any directory mounted within /backups inside the container. </Overview>
+  <Category>Backup:</Category>
+  <TemplateURL>https://raw.githubusercontent.com/andrejwithj/Unraid-Templates/main/Proxmox-Backup-Client.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/andrejwithj/Unraid-Templates/main/icons/proxmox-backup-client.png</Icon>
+  <ExtraParams>--mount type=tmpfs,target=/tmp,tmpfs-size=1G --mount type=tmpfs,target=/run:exec,tmpfs-size=64m --restart unless-stopped</ExtraParams>
+  
+ 
+  <Config Name="PBS Encryption Password" Target="PBS_ENCRYPTION_PASSWORD" Default="" Mode="" Description="Encryption Password is Generated on first startup.&#13;&#10;Copy it from the console log and store it somewhere safe." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="PBS Endpoint" Target="PBS_ENDPOINT" Default="" Mode="" Description="URL or IP of your Proxmox Backup Server instance" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="PBS Datastore" Target="PBS_DATASTORE" Default="" Mode="" Description="Name of the Datastore you want to backup to." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="CRON Schedule" Target="CRON_SCHEDULE" Default="0 */4 * * *" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">0 */4 * * *</Config>
+  <Config Name="PBS API Key Name" Target="PBS_API_KEY_NAME" Default="" Mode="" Description="Use of the PBS_API_KEY_NAME and PBS_API_KEY_SECRET is recommended&#13;&#10;" Type="Variable" Display="always" Required="false" Mask="false">username@pam!test</Config>
+  <Config Name="PBS API Key Secret" Target="PBS_API_KEY_SECRET" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="PBS User" Target="PBS_USER" Default="" Mode="" Description="PBS_USER/PBS_PASSWORD is not required if PBS_API_KEY_NAME is set." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="PBS Password" Target="PBS_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="PBS Fingerprint" Target="PBS_FINGERPRINT" Default="" Mode="" Description="PBS_FINGERPRINT is required if using a self signed SSL certificate." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="PBS Datastore Namespace" Target="PBS_DATASTORE_NS" Default="" Mode="" Description="PBS_DATASTORE_NS is optional but should be set if using namespaces." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Config Directory" Target="/root/.config/proxmox-backup/" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/proxmox-backup-client/</Config>
+  <Config Name="Backup Path 1" Target="/backups/path1" Default="" Mode="ro" Description="" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Backup Path 2" Target="/backups/path2" Default="" Mode="ro" Description="" Type="Path" Display="always" Required="false" Mask="false"/>
+  <Config Name="Backup Path 3" Target="/backups/path3" Default="" Mode="ro" Description="" Type="Path" Display="always" Required="false" Mask="false"/>
+</Container>
