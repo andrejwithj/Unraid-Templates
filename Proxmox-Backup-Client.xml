@@ -10,8 +10,8 @@
   <Project>https://github.com/Aterfax/pbs-client-docker</Project>
   <Overview>A Docker image to run the Proxmox Backup Server client and backup things from any directory mounted within /backups inside the container. </Overview>
   <Category>Backup:</Category>
-  <TemplateURL>https://raw.githubusercontent.com/andrejwithj/Unraid-Templates/main/Proxmox-Backup-Client.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/andrejwithj/Unraid-Templates/main/icons/proxmox-backup-client.png</Icon>
+  <TemplateURL>https://raw.githubusercontent.com/andrejwithj/Unraid-Templates/refs/heads/main/Proxmox-Backup-Client.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/andrejwithj/Unraid-Templates/refs/heads/main/icons/proxmox-backup-client.png</Icon>
   <ExtraParams>--mount type=tmpfs,target=/tmp,tmpfs-size=1G --mount type=tmpfs,target=/run:exec,tmpfs-size=64m --restart unless-stopped</ExtraParams>
   
  
